@@ -4,6 +4,7 @@ import { Devices, Restaurant} from '@material-ui/icons';
 // import { Storefront } from '@material-ui/icons';
 import { activeCategory } from './store/categories';
 import { filterProducts } from './store/products';
+import { useEffect } from 'react';
 
 function Categories(props) {
 
@@ -13,6 +14,12 @@ function Categories(props) {
     props.filterProducts(category);
     props.activeCategory(category);
   }
+
+  useEffect(() => {
+    props.filterProducts('FOOD');
+    props.activeCategory('FOOD');
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
   
   return (
     <div className="categoriesContainer">

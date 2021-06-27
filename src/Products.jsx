@@ -12,7 +12,7 @@ function Products(props) {
       <div className="productGrid">
         {props.productList.products.map((product, idx) => (
           <div key={idx} className="product">
-            <img src="/assets/1.jpg" alt="" className="productImg" />
+            <img src={product.imgUrl} alt="" className="productImg" />
             <p className="productName">{product.name}</p>
             <p className="productDescription">{product.description}</p>
             <div className="productFooter">
