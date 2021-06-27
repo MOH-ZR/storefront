@@ -10,7 +10,7 @@ function Products() {
       <div className="productGrid">
         <div className="product">
           <img src="/assets/1.jpg" alt="" className="productImg" />
-          <p className="productName">USB</p>
+          <p className="productName">Sneakers</p>
           <div className="productFooter">
             <p>ADD TO CART</p>
             <p>VIEW DETAILS</p>
@@ -18,7 +18,7 @@ function Products() {
         </div>
         <div className="product">
           <img src="/assets/1.jpg" alt="" className="productImg" />
-          <p className="productName">USB</p>
+          <p className="productName">Sneakers</p>
           <div className="productFooter">
             <p>ADD TO CART</p>
             <p>VIEW DETAILS</p>
@@ -26,7 +26,7 @@ function Products() {
         </div>
         <div className="product">
           <img src="/assets/1.jpg" alt="" className="productImg" />
-          <p className="productName">USB</p>
+          <p className="productName">Sneakers</p>
           <div className="productFooter">
             <p>ADD TO CART</p>
             <p>VIEW DETAILS</p>
@@ -34,7 +34,7 @@ function Products() {
         </div>
         <div className="product">
           <img src="/assets/1.jpg" alt="" className="productImg" />
-          <p className="productName">USB</p>
+          <p className="productName">Sneakers</p>
           <div className="productFooter">
             <p>ADD TO CART</p>
             <p>VIEW DETAILS</p>
