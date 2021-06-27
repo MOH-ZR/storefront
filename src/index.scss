@@ -20,7 +20,7 @@ html {
 
   .header {
     justify-content: space-between;
-    background: brown;
+    background: crimson;
     height: 6.5vh !important;
     display: flex;
     align-items: center;
@@ -110,6 +110,7 @@ main {
     display: grid;
     grid-template: auto / 1fr 1fr 1fr;
     place-items: center;
+    align-items: start;
     gap: 30px;
     margin-bottom: 60px;
 
@@ -129,6 +130,13 @@ main {
         font-weight: 500;
         font-size: 24px;
         margin: 10px 10px;
+      }
+
+      .productDescription {
+        font-weight: 400;
+        font-size: 18px;
+        margin: 0 10px;
+        max-width: fit-content;
       }
 
       .productFooter {
