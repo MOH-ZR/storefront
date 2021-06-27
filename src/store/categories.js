@@ -37,6 +37,7 @@ export default function categoriesReducer(state = initialState, action) {
 }
 
 export const activeCategory = (activeCategoryName) => {
+  console.log(activeCategoryName);
   return {
     type: 'ACTIVE_CATEGORY',
     activeCategoryName
