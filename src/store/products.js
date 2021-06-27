@@ -45,7 +45,7 @@ let initialState = {
   ]
 }
 
-export default function categoryReducer(state = initialState, action) {
+export default function productsReducer(state = initialState, action) {
   let {type, category} = action;
 
   switch (type) {
