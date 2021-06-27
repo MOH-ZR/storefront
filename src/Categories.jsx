@@ -1,4 +1,4 @@
-import { Devices, Restaurant } from '@material-ui/icons'
+import { Devices, Restaurant, Storefront } from '@material-ui/icons'
 import React from 'react'
 
 function Categories() {
@@ -7,6 +7,8 @@ function Categories() {
       <div className="categories">
         <h2>Browse our categories</h2>
         <div className="categoriesList">
+          <Storefront className="categoriesIcon" />
+          <p>ALL</p>
           <Restaurant className="categoriesIcon" />
           <p>FOOD</p>
           <Devices className="categoriesIcon" />
