@@ -3,9 +3,10 @@
   box-sizing: border-box;
 }
 
-body, html {
+body,
+html {
   margin: 0;
-  font-family:  'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Oxygen',
+  font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -15,9 +16,8 @@ body, html {
 }
 
 .headerContainer {
-
   // height: 5vh !important;
-  
+
   .header {
     justify-content: space-between;
     background: brown;
@@ -80,5 +80,70 @@ main {
       }
     }
   }
+}
 
+.productSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .productSectionHeading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+
+    h2 {
+      font-size: 100px;
+      font-weight: 200;
+    }
+
+    p {
+      font-size: 30px;
+    }
+  }
+
+  .productGrid {
+    width: 75vw;
+    display: grid;
+    grid-template: auto / 1fr 1fr 1fr;
+    place-items: center;
+    gap: 30px;
+    margin-bottom: 60px;
+
+    .product {
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.5);
+      width: fit-content;
+
+      .productImg {
+        width: 300px;
+        height: 200px;
+        object-fit: cover;
+      }
+
+      .productName {
+        font-weight: 500;
+        font-size: 24px;
+        margin: 10px 10px;
+      }
+
+      .productFooter {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-weight: 500;
+        font-size: 14px;
+        margin-left: 10px;
+        margin-bottom: 10px;
+
+        p {
+          cursor: pointer;
+        }
+      }
+    }
+  }
 }

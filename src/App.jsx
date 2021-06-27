@@ -1,17 +1,18 @@
-import Header from "./Header";
-import Footer from "./Footer";
-import Categories from "./Categories";
-
+import Header from './Header';
+import Footer from './Footer';
+import Categories from './Categories';
+import Products from './Products';
 
 function App() {
   return (
     <>
       <Header />
-      <Categories />
-      {/* <Products /> */}
-      <main></main>
+      <main>
+        <Categories />
+        <Products />
+      </main>
       <Footer />
-    </>    
+    </>
   );
 }
 
