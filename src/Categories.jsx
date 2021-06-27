@@ -7,10 +7,12 @@ import { filterProducts } from './store/products';
 
 function Categories(props) {
 
-  // function changeCategory(category) {
-  //   activeCategory(category);
-  //   filterProducts(category);
-  // }
+  function changeCategory(category) {
+    // there must be a way to dispatch the same action
+    // ... in a cleaner way
+    props.filterProducts(category);
+    props.activeCategory(category);
+  }
   
   return (
     <div className="categoriesContainer">
@@ -20,9 +22,9 @@ function Categories(props) {
           {/* <Storefront className="categoriesIcon" />
           <p onClick={() => props.activeCategory()}>ALL</p> */}
           <Restaurant className="categoriesIcon" />
-          <p onClick={() => props.filterProducts('FOOD')}>FOOD</p>
+          <p onClick={() => changeCategory('FOOD')}>FOOD</p>
           <Devices className="categoriesIcon" />
-          <p onClick={() => props.filterProducts('ELECTRONICS')}>ELECTRONICS</p>
+          <p onClick={() => changeCategory('ELECTRONICS')}>ELECTRONICS</p>
         </div>
       </div>
     </div>

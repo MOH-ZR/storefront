@@ -2,11 +2,12 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 function Products(props) {
+  console.log(props.category)
   return (
     <div className="productSection">
       <div className="productSectionHeading">
-        <h2>PRODUCT</h2>
-        <p>Category description</p>
+        <h2>{props.category.activeCategory.displayName}</h2>
+        <p>{props.category.activeCategory.description}</p>
       </div>
       <div className="productGrid">
         {props.productList.products.map((product, idx) => (
@@ -26,7 +27,8 @@ function Products(props) {
 }
 
 const mapStateToProps = (state) => ({
-  productList: state.productsReducer
+  productList: state.productsReducer,
+  category: state.categoriesReducer
 });
 
 export default connect(mapStateToProps)(Products);

@@ -49,7 +49,7 @@ export default function productsReducer(state = initialState, action) {
   let { type, category } = action;
 
   switch (type) {
-    case 'ACTIVE_CATEGORY':
+    case 'FILTER_PRODUCTS':
       let products = initialState.products.filter(
         (product) => product.category === category
       );
@@ -64,10 +64,8 @@ export default function productsReducer(state = initialState, action) {
 }
 
 export const filterProducts = (category) => {
-  console.log('productsReducer', category);
-
   return {
-    type: 'ACTIVE_CATEGORY',
+    type: 'FILTER_PRODUCTS',
     category
   };
 };

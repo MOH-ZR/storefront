@@ -23,10 +23,12 @@ export default function categoriesReducer(state = initialState, action) {
 
   switch (type) {
     case 'ACTIVE_CATEGORY':
-      let activeCategory = initialState.categories.filter(
+      let activeCategory = state.categories.filter(
         (category) => category.normalizedName === activeCategoryName
       );
-      return { activeCategory };
+      console.log('state', state)
+      console.log(activeCategory)
+      return { ...state, activeCategory: activeCategory[0] };
 
     case 'ALL_CATEGORIES':
       return initialState;
@@ -37,7 +39,7 @@ export default function categoriesReducer(state = initialState, action) {
 }
 
 export const activeCategory = (activeCategoryName) => {
-  console.log('categoriesReducer', activeCategoryName);
+  console.log('working')
   return {
     type: 'ACTIVE_CATEGORY',
     activeCategoryName
