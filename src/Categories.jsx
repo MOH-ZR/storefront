@@ -1,9 +1,17 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Devices, Restaurant, Storefront } from '@material-ui/icons';
-import { activeCategory } from './store/products';
+import { Devices, Restaurant} from '@material-ui/icons';
+// import { Storefront } from '@material-ui/icons';
+import { activeCategory } from './store/categories';
+import { filterProducts } from './store/products';
 
 function Categories(props) {
+
+  // function changeCategory(category) {
+  //   activeCategory(category);
+  //   filterProducts(category);
+  // }
+  
   return (
     <div className="categoriesContainer">
       <div className="categories">
@@ -12,15 +20,15 @@ function Categories(props) {
           {/* <Storefront className="categoriesIcon" />
           <p onClick={() => props.activeCategory()}>ALL</p> */}
           <Restaurant className="categoriesIcon" />
-          <p onClick={() => props.activeCategory('FOOD')}>FOOD</p>
+          <p onClick={() => props.filterProducts('FOOD')}>FOOD</p>
           <Devices className="categoriesIcon" />
-          <p onClick={() => props.activeCategory('ELECTRONICS')}>ELECTRONICS</p>
+          <p onClick={() => props.filterProducts('ELECTRONICS')}>ELECTRONICS</p>
         </div>
       </div>
     </div>
   );
 }
 
-const mapDispatchToProps = { activeCategory };
+const mapDispatchToProps = { activeCategory, filterProducts };
 
 export default connect(null, mapDispatchToProps)(Categories);

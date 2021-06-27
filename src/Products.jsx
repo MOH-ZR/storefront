@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { activeCategory, allCategories } from './store/products';
 
 function Products(props) {
   return (
@@ -30,6 +29,4 @@ const mapStateToProps = (state) => ({
   productList: state.productsReducer
 });
 
-const mapDispatchToProps = { activeCategory, allCategories };
-
-export default connect(mapStateToProps, mapDispatchToProps)(Products);
+export default connect(mapStateToProps)(Products);
