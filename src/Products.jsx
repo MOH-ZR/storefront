@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import {addToCart} from './store/cart'
+import {addToCart} from './store/actions'
 
 function Products(props) {
   const { productList, category } = useSelector((state) => ({
@@ -22,6 +22,7 @@ function Products(props) {
             <img src={product.imgUrl} alt="" className="productImg" />
             <p className="productName">{product.name}</p>
             <p className="productDescription">{product.description}</p>
+            <p className="productInventory">IN STOCK ({product.inventory})</p>
             <div className="productFooter">
               <p onClick={() => dispatch(addToCart(product))}>ADD TO CART</p>
               <p>VIEW DETAILS</p>

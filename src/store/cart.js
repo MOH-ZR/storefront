@@ -21,7 +21,7 @@ export default function cartReducer(state = initialState, action) {
 
     case 'REMOVE_FROM_CART':
       let index = null;
-      let cartItemsAfterDelete = state.map((item, idx) => {
+      let cartItemsAfterDecrement = state.map((item, idx) => {
         if (item.name === payload.name) {
           item = { ...item, count: item.count - 1 };
           if (item.count === 0) index = idx;
@@ -29,8 +29,8 @@ export default function cartReducer(state = initialState, action) {
         }
         return item;
       });
-      if (index !== null) cartItemsAfterDelete.splice(index, 1);
-      return cartItemsAfterDelete;
+      if (index !== null) cartItemsAfterDecrement.splice(index, 1);
+      return cartItemsAfterDecrement;
 
     default:
       return state;

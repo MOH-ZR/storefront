@@ -1,10 +1,10 @@
 
 
-export const activeCategory = (activeCategoryNew) => {
+export const activeCategory = (payload) => {
   console.log('working')
   return {
     type: 'ACTIVE_CATEGORY',
-    activeCategoryNew
+    payload
   };
 };
 

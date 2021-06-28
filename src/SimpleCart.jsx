@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { removeFromCart } from './store/cart';
+import { removeFromCart } from './store/actions';
 
 export default function SimpleCart() {
   const cartItems = useSelector((state) => state.cartReducer);

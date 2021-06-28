@@ -106,12 +106,14 @@ main {
   }
 
   .productGrid {
-    width: 75vw;
-    display: grid;
-    grid-template: auto / 1fr 1fr 1fr;
-    place-items: center;
+    width: 90vw;
+    width: clamp(300px, 90vw, 1000px);
+    display: flex;
+    justify-content: center;
     align-items: start;
-    gap: 30px;
+    flex-wrap: wrap;
+    gap: 50px;
+
     margin-bottom: 60px;
 
     .product {
@@ -139,6 +141,13 @@ main {
         max-width: fit-content;
       }
 
+      .productInventory {
+        margin-left: 10px;
+        margin-top: 20px;
+        font-size: 14px;
+        font-weight: 500;
+      }
+
       .productFooter {
         display: flex;
         align-items: center;
@@ -163,17 +172,27 @@ main {
   right: 30px;
   background: crimson;
   color: whitesmoke;
-  padding: 20px 20px 10px 20px;
+  padding: 20px 20px 0px 20px;
 
   .simpleCartItem {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
+
+    .simpleCartItemName {
+      font-weight: 500;
+    }
 
     .simpleCartDeleteItem {
-      margin-left: 30px;
+      margin-left: 60px;
       cursor: pointer;
+      transition: 200ms ease-in-out;
+
+      &:hover {
+        transition: 200ms ease-in-out;
+        transform: scale(135%);
+      }
     }
   }
 

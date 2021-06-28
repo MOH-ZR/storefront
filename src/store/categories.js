@@ -20,12 +20,12 @@ let initialState = {
 };
 
 export default function categoriesReducer(state = initialState, action) {
-  let { type, activeCategoryNew } = action;
+  let { type, payload } = action;
 
   switch (type) {
     case 'ACTIVE_CATEGORY':
       let activeCategory = state.categories.filter(
-        (category) => category.normalizedName === activeCategoryNew
+        (category) => category.normalizedName === payload
       );
       console.log('state', state);
       console.log(activeCategory);
