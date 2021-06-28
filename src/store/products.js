@@ -56,6 +56,7 @@ export default function productsReducer(state = initialState, action) {
 
   switch (type) {
     case 'ACTIVE_CATEGORY':
+      if (activeCategoryNew === 'ALL') return initialState;
       let products = initialState.products.filter(
         (product) => product.category === activeCategoryNew
       );

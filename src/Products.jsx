@@ -29,10 +29,4 @@ function Products(props) {
   );
 }
 
-// const mapStateToProps = (state) => ({
-//   productList: state.productsReducer,
-//   category: state.categoriesReducer
-// });
-
-// export default connect(mapStateToProps)(Products);
 export default Products;

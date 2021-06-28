@@ -1,6 +1,11 @@
 let initialState = {
   categories: [
     {
+      normalizedName: 'ALL',
+      displayName: 'ALL',
+      description: 'All the goodies 😉'
+    },
+    {
       normalizedName: 'FOOD',
       displayName: 'FOOD',
       description: 'You are what you eat 🤤'
