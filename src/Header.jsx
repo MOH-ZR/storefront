@@ -3,8 +3,11 @@ import {
   Typography,
   Button
 } from '@material-ui/core';
+import { useSelector } from 'react-redux';
 
 function Header() {
+
+  const cartItemsCount = useSelector(state => state.cartReducer.length)
   return (
     <div className="headerContainer" position="static">
       <header className="header">
@@ -14,7 +17,7 @@ function Header() {
         >
           TheWeirdStore
         </Typography>
-        <Button ml="auto" color="inherit">Cart (0)</Button>
+        <Button ml="auto" color="inherit">Cart ({cartItemsCount})</Button>
       </header>
     </div>
   );

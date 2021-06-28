@@ -156,3 +156,25 @@ main {
     }
   }
 }
+
+.simpleCart {
+  position: fixed;
+  top: 95px;
+  right: 30px;
+  background: crimson;
+  color: whitesmoke;
+  padding: 20px 20px 10px 20px;
+
+  .simpleCartItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+
+    .simpleCartDeleteItem {
+      margin-left: 30px;
+      cursor: pointer;
+    }
+  }
+
+}
