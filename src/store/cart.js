@@ -5,22 +5,32 @@ export default function cartReducer(state = initialState, action) {
 
   switch (type) {
     case 'ADD_TO_CART':
-      console.log('PAYLOAD', payload);
       payload.count = 1;
       if (!state.length) return [payload];
       let added = false;
-      let cartItems = [...state]
-      cartItems = cartItems.map(item => {
+      let cartItems = [...state];
+      cartItems = cartItems.map((item) => {
         if (item.name === payload.name) {
-          added = true
-          return {...item, count: item.count + 1}
+          added = true;
+          return { ...item, count: item.count + 1 };
         }
         return item;
-      })
-      console.log(cartItems)
+      });
       if (!added) return [...cartItems, payload];
-      // console.log('FINAL', cartItems);
       return cartItems;
+
+    case 'REMOVE_FROM_CART':
+      let index = null;
+      let cartItemsAfterDelete = state.map((item, idx) => {
+        if (item.name === payload.name) {
+          item = { ...item, count: item.count - 1 };
+          if (item.count === 0) index = idx;
+          return item;
+        }
+        return item;
+      });
+      if (index !== null) cartItemsAfterDelete.splice(index, 1);
+      return cartItemsAfterDelete;
 
     case 'ALL_CATEGORIES':
       return initialState;
@@ -33,6 +43,13 @@ export default function cartReducer(state = initialState, action) {
 export function addToCart(payload) {
   return {
     type: 'ADD_TO_CART',
+    payload
+  };
+}
+
+export function removeFromCart(payload) {
+  return {
+    type: 'REMOVE_FROM_CART',
     payload
   };
 }
