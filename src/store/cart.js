@@ -32,24 +32,7 @@ export default function cartReducer(state = initialState, action) {
       if (index !== null) cartItemsAfterDelete.splice(index, 1);
       return cartItemsAfterDelete;
 
-    case 'ALL_CATEGORIES':
-      return initialState;
-
     default:
       return state;
   }
-}
-
-export function addToCart(payload) {
-  return {
-    type: 'ADD_TO_CART',
-    payload
-  };
-}
-
-export function removeFromCart(payload) {
-  return {
-    type: 'REMOVE_FROM_CART',
-    payload
-  };
 }

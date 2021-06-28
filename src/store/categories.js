@@ -31,9 +31,6 @@ export default function categoriesReducer(state = initialState, action) {
       console.log(activeCategory);
       return { ...state, activeCategory: activeCategory[0] };
 
-    case 'ALL_CATEGORIES':
-      return initialState;
-
     default:
       return state;
   }

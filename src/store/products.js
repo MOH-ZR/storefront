@@ -62,9 +62,6 @@ export default function productsReducer(state = initialState, action) {
       );
       return { products };
 
-    case 'ALL_CATEGORIES':
-      return initialState;
-
     default:
       return state;
   }
