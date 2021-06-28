@@ -81,3 +81,5 @@ export const allCategories = () => {
     type: 'ALL_CATEGORIES'
   };
 };
+
+//
