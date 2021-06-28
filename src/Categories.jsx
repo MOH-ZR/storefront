@@ -1,23 +1,24 @@
-import React from 'react';
-import { connect } from 'react-redux';
+import React, {useEffect} from 'react';
+import { connect, useDispatch } from 'react-redux';
 import { Devices, Restaurant} from '@material-ui/icons';
 // import { Storefront } from '@material-ui/icons';
 import { activeCategory } from './store/categories';
 import { filterProducts } from './store/products';
-import { useEffect } from 'react';
 
 function Categories(props) {
+
+  const dispatch = useDispatch()
 
   function changeCategory(category) {
     // there must be a way to dispatch the same action
     // ... in a cleaner way
-    props.filterProducts(category);
-    props.activeCategory(category);
+    dispatch(filterProducts(category));
+    dispatch(activeCategory(category));
   }
 
   useEffect(() => {
-    props.filterProducts('FOOD');
-    props.activeCategory('FOOD');
+    dispatch(filterProducts('FOOD'));
+    dispatch(activeCategory('FOOD'));
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
   
@@ -38,6 +39,7 @@ function Categories(props) {
   );
 }
 
-const mapDispatchToProps = { activeCategory, filterProducts };
+// const mapDispatchToProps = { activeCategory, filterProducts };
 
-export default connect(null, mapDispatchToProps)(Categories);
+// export default connect(null, mapDispatchToProps)(Categories);
+export default Categories;
