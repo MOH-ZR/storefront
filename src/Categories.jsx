@@ -1,23 +1,15 @@
-import React from 'react';
-import { connect } from 'react-redux';
+import React, {useEffect} from 'react';
+import { useDispatch } from 'react-redux';
 import { Devices, Restaurant} from '@material-ui/icons';
-// import { Storefront } from '@material-ui/icons';
-import { activeCategory } from './store/categories';
-import { filterProducts } from './store/products';
-import { useEffect } from 'react';
+import { Storefront } from '@material-ui/icons';
+import { activeCategory } from './store/actions';
 
 function Categories(props) {
 
-  function changeCategory(category) {
-    // there must be a way to dispatch the same action
-    // ... in a cleaner way
-    props.filterProducts(category);
-    props.activeCategory(category);
-  }
+  const dispatch = useDispatch()
 
   useEffect(() => {
-    props.filterProducts('FOOD');
-    props.activeCategory('FOOD');
+    dispatch(activeCategory('ALL'));
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
   
@@ -26,18 +18,16 @@ function Categories(props) {
       <div className="categories">
         <h2>Browse our categories</h2>
         <div className="categoriesList">
-          {/* <Storefront className="categoriesIcon" />
-          <p onClick={() => props.activeCategory()}>ALL</p> */}
+          <Storefront className="categoriesIcon" />
+          <p onClick={() => dispatch(activeCategory('ALL'))}>ALL</p>
           <Restaurant className="categoriesIcon" />
-          <p onClick={() => changeCategory('FOOD')}>FOOD</p>
+          <p onClick={() => dispatch(activeCategory('FOOD'))}>FOOD</p>
           <Devices className="categoriesIcon" />
-          <p onClick={() => changeCategory('ELECTRONICS')}>ELECTRONICS</p>
+          <p onClick={() => dispatch(activeCategory('ELECTRONICS'))}>ELECTRONICS</p>
         </div>
       </div>
     </div>
   );
 }
 
-const mapDispatchToProps = { activeCategory, filterProducts };
-
-export default connect(null, mapDispatchToProps)(Categories);
+export default Categories;

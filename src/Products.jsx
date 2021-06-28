@@ -1,22 +1,34 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import {addToCart} from './store/actions'
 
 function Products(props) {
-  console.log(props.category)
+  const { productList, category } = useSelector((state) => ({
+    productList: state.productsReducer,
+    category: state.categoriesReducer
+  }));
+
+  const dispatch = useDispatch()
+
   return (
     <div className="productSection">
       <div className="productSectionHeading">
-        <h2>{props.category.activeCategory.displayName}</h2>
-        <p>{props.category.activeCategory.description}</p>
+        <h2>{category.activeCategory.displayName}</h2>
+        <p>{category.activeCategory.description}</p>
       </div>
       <div className="productGrid">
-        {props.productList.products.map((product, idx) => (
+        {productList.products.map((product, idx) => (
           <div key={idx} className="product">
             <img src={product.imgUrl} alt="" className="productImg" />
             <p className="productName">{product.name}</p>
             <p className="productDescription">{product.description}</p>
+            <p className="productInventory">IN STOCK ({product.inventory})</p>
             <div className="productFooter">
-              <p>ADD TO CART</p>
+              {product.inventory ? (
+                <p onClick={() => dispatch(addToCart(product))}>ADD TO CART</p>
+                ) : (
+                <p>OUT OF STOCK</p>
+              )}
               <p>VIEW DETAILS</p>
             </div>
           </div>
@@ -26,9 +38,4 @@ function Products(props) {
   );
 }
 
-const mapStateToProps = (state) => ({
-  productList: state.productsReducer,
-  category: state.categoriesReducer
-});
-
-export default connect(mapStateToProps)(Products);
+export default Products;

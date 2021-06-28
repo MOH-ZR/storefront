@@ -1,6 +1,11 @@
 let initialState = {
   categories: [
     {
+      normalizedName: 'ALL',
+      displayName: 'ALL',
+      description: 'All the goodies 😉'
+    },
+    {
       normalizedName: 'FOOD',
       displayName: 'FOOD',
       description: 'You are what you eat 🤤'
@@ -11,37 +16,22 @@ let initialState = {
       description: 'Some 🛸 alien 🛸 tech right here!'
     }
   ],
-  activeCategory: {
-    normalizedName: 'FOOD',
-    displayName: 'FOOD',
-    description: 'You are what you eat 🤤'
-  }
+  activeCategory: {}
 };
 
 export default function categoriesReducer(state = initialState, action) {
-  let { type, activeCategoryName } = action;
+  let { type, payload } = action;
 
   switch (type) {
     case 'ACTIVE_CATEGORY':
       let activeCategory = state.categories.filter(
-        (category) => category.normalizedName === activeCategoryName
+        (category) => category.normalizedName === payload
       );
-      console.log('state', state)
-      console.log(activeCategory)
+      console.log('state', state);
+      console.log(activeCategory);
       return { ...state, activeCategory: activeCategory[0] };
-
-    case 'ALL_CATEGORIES':
-      return initialState;
 
     default:
       return state;
   }
 }
-
-export const activeCategory = (activeCategoryName) => {
-  console.log('working')
-  return {
-    type: 'ACTIVE_CATEGORY',
-    activeCategoryName
-  };
-};
