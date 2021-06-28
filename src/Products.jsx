@@ -24,7 +24,11 @@ function Products(props) {
             <p className="productDescription">{product.description}</p>
             <p className="productInventory">IN STOCK ({product.inventory})</p>
             <div className="productFooter">
-              <p onClick={() => dispatch(addToCart(product))}>ADD TO CART</p>
+              {product.inventory ? (
+                <p onClick={() => dispatch(addToCart(product))}>ADD TO CART</p>
+                ) : (
+                <p>OUT OF STOCK</p>
+              )}
               <p>VIEW DETAILS</p>
             </div>
           </div>

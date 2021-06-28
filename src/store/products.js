@@ -1,4 +1,4 @@
-export let initialState = {
+let initialState = {
   products: [
     {
       category: 'FOOD',
@@ -62,20 +62,19 @@ export default function productsReducer(state = initialState, action) {
       );
       return { products };
 
-    // case 'ADD_TO_CART':
-    //   // decrement inventory
-    //   let index = null;
-    //   console.log(state)
-    //   let productsAfterDecrement = state.products.map((product, idx) => {
-    //     if (product.name === payload.name) {
-    //       product = { ...product, inventory: product.inventory - 1 };
-    //       if (product.inventory === 0) index = idx;
-    //       return product;
-    //     }
-    //     return product;
-    //   });
-    //   // if (index !== null) productsAfterDecrement.splice(index, 1);
-    //   return {products: productsAfterDecrement};
+    case 'ADD_TO_CART':
+      // decrement inventory
+      console.log(state);
+      // decrementing from current state
+      let productsAfterDecrement = state.products.map((product) => {
+        if (product.name === payload.name) {
+          product = { ...product, inventory: product.inventory - 1 };
+          return product;
+        }
+        return product;
+      });
+
+      return { products: productsAfterDecrement };
 
     default:
       return state;
