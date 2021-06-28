@@ -16,11 +16,7 @@ let initialState = {
       description: 'Some 🛸 alien 🛸 tech right here!'
     }
   ],
-  activeCategory: {
-    normalizedName: 'FOOD',
-    displayName: 'FOOD',
-    description: 'You are what you eat 🤤'
-  }
+  activeCategory: {}
 };
 
 export default function categoriesReducer(state = initialState, action) {
@@ -31,8 +27,8 @@ export default function categoriesReducer(state = initialState, action) {
       let activeCategory = state.categories.filter(
         (category) => category.normalizedName === activeCategoryNew
       );
-      console.log('state', state)
-      console.log(activeCategory)
+      console.log('state', state);
+      console.log(activeCategory);
       return { ...state, activeCategory: activeCategory[0] };
 
     case 'ALL_CATEGORIES':
@@ -42,4 +38,3 @@ export default function categoriesReducer(state = initialState, action) {
       return state;
   }
 }
-

@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import { connect, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { Devices, Restaurant} from '@material-ui/icons';
 import { Storefront } from '@material-ui/icons';
 import { activeCategory } from './store/actions';
@@ -9,7 +9,7 @@ function Categories(props) {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    dispatch(activeCategory('FOOD'));
+    dispatch(activeCategory('ALL'));
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
   

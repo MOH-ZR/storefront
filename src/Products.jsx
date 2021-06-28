@@ -6,6 +6,7 @@ function Products(props) {
     productList: state.productsReducer,
     category: state.categoriesReducer
   }));
+  
   return (
     <div className="productSection">
       <div className="productSectionHeading">
